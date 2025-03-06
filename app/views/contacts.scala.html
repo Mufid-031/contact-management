@@ -1,0 +1,29 @@
+@(contacts: Seq[models.Contact])
+
+@main("Manajemen Kontak") {
+  <a href="@routes.ContactController.addForm()" class="btn btn-add">Tambah Kontak</a>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nama</th>
+        <th>Email</th>
+        <th>Telepon</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(contact <- contacts) {
+        <tr>
+          <td>@contact.id</td>
+          <td>@contact.name</td>
+          <td>@contact.email</td>
+          <td>@contact.phone</td>
+          <td>
+            <a href="@routes.ContactController.delete(contact.id.get)" class="btn btn-delete">Hapus</a>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}
