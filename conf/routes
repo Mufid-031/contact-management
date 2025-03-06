@@ -4,9 +4,8 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                            controllers.HomeController.index()
 
-GET     /contacts                    controllers.ContactController.list()
+GET     /                            controllers.ContactController.list()
 GET     /contacts/add                controllers.ContactController.addForm()
 POST    /contacts                    controllers.ContactController.create()
 GET     /contacts/delete/:id         controllers.ContactController.delete(id: Long)
