@@ -35,6 +35,9 @@ class ContactRepository @Inject()(protected val dbConfigProvider: DatabaseConfig
   def update(id: Long, contact: Contact): Future[Int] =
     db.run(contacts.filter(_.id === id).update(contact))
 
+  def getById(id: Long): Future[Option[Contact]] =
+    db.run(contacts.filter(_.id === id).result.headOption)
+
   def delete(id: Long): Future[Int] =
     db.run(contacts.filter(_.id === id).delete)
 }

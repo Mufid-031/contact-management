@@ -35,4 +35,23 @@ class ContactController @Inject()(val controllerComponents: ControllerComponents
       Redirect(routes.ContactController.list())
     }
   }
+
+  def editForm(id: Long): Action[AnyContent] = Action.async { implicit request =>
+    repo.getById(id).map {
+      case Some(contact) => Ok(views.html.editContact(contact))
+      case None => NotFound("Kontak tidak ditemukan")
+    }
+  }
+
+  def update(id: Long): Action[AnyContent] = Action.async { implicit request =>
+    val formData = request.body.asFormUrlEncoded
+    val name = formData.get("name").head
+    val email = formData.get("email").head
+    val phone = formData.get("phone").head
+
+    val updatedContact = Contact(Some(id), name, email, phone)
+    repo.update(id, updatedContact).map { _ =>
+      Redirect(routes.ContactController.list())
+    }
+  }
 }

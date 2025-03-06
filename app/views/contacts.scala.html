@@ -9,7 +9,7 @@
         <th>Nama</th>
         <th>Email</th>
         <th>Telepon</th>
-        <th>Aksi</th>
+        <th colspan="2">Aksi</th>
       </tr>
     </thead>
     <tbody>
@@ -20,8 +20,9 @@
           <td>@contact.email</td>
           <td>@contact.phone</td>
           <td>
+            <a href="@routes.ContactController.editForm(contact.id.get)" class="btn btn-edit">Edit</a>
             <a href="@routes.ContactController.delete(contact.id.get)" class="btn btn-delete">Hapus</a>
-          </td>
+          </td>          
         </tr>
       }
     </tbody>

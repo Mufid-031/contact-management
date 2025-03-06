@@ -1,0 +1,18 @@
+@import helper._
+@(contact: models.Contact)(implicit request: RequestHeader)
+
+@main("Edit Kontak") {
+  <form action="@routes.ContactController.update(contact.id.get)" method="POST">
+    @CSRF.formField
+    <label>Nama:</label>
+    <input type="text" name="name" value="@contact.name" required>
+
+    <label>Email:</label>
+    <input type="email" name="email" value="@contact.email" required>
+
+    <label>Telepon:</label>
+    <input type="text" name="phone" value="@contact.phone" required>
+
+    <button type="submit" class="btn btn-save">Simpan Perubahan</button>
+  </form>
+}

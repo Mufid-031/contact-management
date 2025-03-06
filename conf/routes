@@ -9,6 +9,8 @@ GET     /                            controllers.ContactController.list()
 GET     /contacts/add                controllers.ContactController.addForm()
 POST    /contacts                    controllers.ContactController.create()
 GET     /contacts/delete/:id         controllers.ContactController.delete(id: Long)
+GET     /contacts/edit/:id           controllers.ContactController.editForm(id: Long)
+POST    /contacts/update/:id         controllers.ContactController.update(id: Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
