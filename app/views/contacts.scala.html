@@ -1,30 +1,47 @@
-@(contacts: Seq[models.Contact])
-
-@main("Manajemen Kontak") {
-  <a href="@routes.ContactController.addForm()" class="btn btn-add">Tambah Kontak</a>
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nama</th>
-        <th>Email</th>
-        <th>Telepon</th>
-        <th colspan="2">Aksi</th>
-      </tr>
-    </thead>
-    <tbody>
-      @for(contact <- contacts) {
-        <tr>
-          <td>@contact.id</td>
-          <td>@contact.name</td>
-          <td>@contact.email</td>
-          <td>@contact.phone</td>
-          <td>
-            <a href="@routes.ContactController.editForm(contact.id.get)" class="btn btn-edit">Edit</a>
-            <a href="@routes.ContactController.delete(contact.id.get)" class="btn btn-delete">Hapus</a>
-          </td>          
-        </tr>
-      }
-    </tbody>
-  </table>
+@(contacts: Seq[models.Contact]) @main("Manajemen Kontak") {
+<section class="container-contact">
+  <header>
+    <h2>Management Kontak</h2>
+    <button>
+      <a href="@routes.ContactController.addForm()" class="btn btn-add">Tambah Kontak</a>
+    </button>
+  </header>
+  <input type="text" name="search" id="search" />
+  <div class="container-cards">
+    @for(contact <- contacts) {
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <h4>@contact.name</h4>
+          <p>@contact.phone</p>
+        </div>
+        <div class="card-actions">
+          <div class="edit-icon">
+            <a style="color: black;" href="@routes.ContactController.editForm(contact.id.get)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil">
+                <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" />
+                <path d="m15 5 4 4" />
+              </svg>
+            </a>
+          </div>
+          <div class="delete-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash-2">
+              <path d="M3 6h18" />
+              <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+              <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+              <line x1="10" x2="10" y1="11" y2="17" />
+              <line x1="14" x2="14" y1="11" y2="17" />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-item">
+          <h5>Email: @contact.email</h5>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</section>
 }
