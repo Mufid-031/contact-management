@@ -1,0 +1,13 @@
+import slick.jdbc.SQLiteProfile.api._
+import models.ContactsTable
+
+val db = Database.forURL("jdbc:sqlite:contacts.db", driver="org.sqlite.JDBC")
+val contacts = TableQuery[ContactsTable] // Tanpa 'new'
+
+val setup = DBIO.seq(
+  contacts.schema.create
+)
+
+import scala.concurrent.Await
+import scala.concurrent.duration.Duration
+Await.result(db.run(setup), Duration.Inf)
