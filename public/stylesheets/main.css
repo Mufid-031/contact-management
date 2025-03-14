@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.container-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 15rem;
+    margin-top: 3rem;
+}
+
+.container-contact header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-contact header h2 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.container-contact header button {
+    padding: 0.7rem 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #000;
+}
+
+.container-contact header button a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.container-contact input {
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.container-contact .container-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.container-contact .container-cards .card {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 1rem;
+}
+
+.container-contact .container-cards .card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.container-contact .container-cards .card .card-header .card-title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.container-contact .container-cards .card .card-header .card-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 10rem;
+    padding: 0 35rem;
+}
+
+form label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+form input {
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    padding: 0.7rem 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #000;
+    color: #fff;
+}
