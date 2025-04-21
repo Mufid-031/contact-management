@@ -11,3 +11,4 @@ val setup = DBIO.seq(
 import scala.concurrent.Await
 import scala.concurrent.duration.Duration
 Await.result(db.run(setup), Duration.Inf)
+  
